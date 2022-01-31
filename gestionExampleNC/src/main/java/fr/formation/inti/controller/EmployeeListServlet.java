@@ -32,7 +32,6 @@ public class EmployeeListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		List<Employee> employees = service.findAllEmployees();
 		request.setAttribute("employees", employees);
 		request.getRequestDispatcher("/employeeList.jsp").forward(request, response);

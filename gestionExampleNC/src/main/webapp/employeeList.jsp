@@ -7,9 +7,6 @@
 	<meta charset="UTF-8">
 	<title>Liste des employés</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -32,13 +29,14 @@
 			      <td>${employee.getLastName()}</td>
 			      <td>${employee.getTitle()}</td>
 			      
-			      <td><form action="homePage.jsp" method="post"><input type="image" src="img/edit.png" alt="Edit" height="15" width="15" value="Edit"></form></td>
-			      <td><form action="homePage.jsp" method="post"><input type="image" src="img/delete.png" alt="Delete" height="15" width="15" value="Delete"></form></td>
+			      <td><a href="deleteEmp?empId=${employee.getEmpId().toString()}"><img alt="Delete" src="img/delete.png" height="15" width="15"></a></td>
 			    </tr>
+			    
 			</c:forEach>
 		  </tbody>
 		</table>
-		
+
 	</div>
+	
 </body>
 </html>

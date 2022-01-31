@@ -43,7 +43,8 @@ public class GenericDao<T,I extends Serializable> implements IGenericDao<T, I> {
 
 
 	public void delete(I i) {
-		session.delete(i);
+		T t = findById(i);
+		session.delete(t);
 	}
 
 

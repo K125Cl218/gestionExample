@@ -256,3 +256,7 @@ input[type=text]:placeholder {
 *:focus {
     outline: none;
 } 
+
+#icon {
+  width:60%;
+}

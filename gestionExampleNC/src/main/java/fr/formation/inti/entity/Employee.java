@@ -56,6 +56,14 @@ public class Employee implements java.io.Serializable {
 		this.assignedBranchId = assignedBranchId;
 		this.employees = employees;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Employee [endDate=" + endDate + ", firstName=" + firstName + ", lastName=" + lastName + ", startDate="
+				+ startDate + ", title=" + title + "]";
+	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)

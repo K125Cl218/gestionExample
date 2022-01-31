@@ -1,37 +1,41 @@
 package fr.formation.inti.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import fr.formation.inti.entity.Employee;
+import fr.formation.inti.service.EmployeeService;
+import fr.formation.inti.service.IEmployeeService;
 
 /**
- * Servlet implementation class LogoutServlet
+ * Servlet implementation class EmployeeListServlet
  */
-@WebServlet("/logout")
-public class LogoutServlet extends HttpServlet {
+@WebServlet("/employeeList")
+public class EmployeeListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private IEmployeeService service;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogoutServlet() {
-        super();
+    public EmployeeListServlet() {
+    	service = new EmployeeService();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(false);
-		if (session != null) {
-			session.invalidate();
-			request.setAttribute("logout", "Succesfully logged out !");
-		}
-		request.getRequestDispatcher("/login.jsp").forward(request, response);
+		
+		List<Employee> employees = service.findAllEmployees();
+		request.setAttribute("employees", employees);
+		request.getRequestDispatcher("/employeeList.jsp").forward(request, response);
 	}
 
 	/**

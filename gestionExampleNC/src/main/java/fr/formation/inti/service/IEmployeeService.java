@@ -1,5 +1,9 @@
 package fr.formation.inti.service;
 
-public interface IEmployeeService {
+import java.util.List;
 
+import fr.formation.inti.entity.Employee;
+
+public interface IEmployeeService {
+	List<Employee> findAllEmployees();
 }

@@ -56,7 +56,7 @@ public class Role implements java.io.Serializable {
 		this.roleName = roleName;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "Role")
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
 	public Set<User> getUsers() {
 		return this.users;
 	}

@@ -1,5 +1,7 @@
 package fr.formation.inti.dao;
 
+import javax.persistence.NoResultException;
+
 import org.hibernate.query.Query;
 
 import fr.formation.inti.entity.User;
@@ -12,7 +14,11 @@ public class UserDao extends GenericDao<User, Integer> implements IUserDao {
 		query.setParameter("login", login);
 		query.setParameter("pass", password);
 
-		return query.getSingleResult();
+		try {
+			return query.getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 
 }

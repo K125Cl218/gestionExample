@@ -15,11 +15,24 @@
 	<div class="wrapper">
 		<%@include file="jspf/navbar.html"%>
 		
-		<div class="list-group">
-			<c:forEach items="${employees}" var="employee">
-				<span class="list-group-item">${employee.toString()}</span>
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">First Name</th>
+		      <th scope="col">Last Name</th>
+		      <th scope="col">Title</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<c:forEach items="${employees}" var="employee">
+			    <tr>
+			      <td>${employee.getFirstName()}</td>
+			      <td>${employee.getLastName()}</td>
+			      <td>${employee.getTitle()}</td>
+			    </tr>
 			</c:forEach>
-		</div>
+		  </tbody>
+		</table>
 		
 	</div>
 </body>

@@ -50,6 +50,10 @@ public class UserController extends HttpServlet {
 		}
 		else
 		{
+			HttpSession session = request.getSession(false);
+			if (session != null) {
+				session.invalidate();
+			}
 			request.setAttribute("error", "login or password incorrect !");
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}

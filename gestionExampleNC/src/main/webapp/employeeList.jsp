@@ -29,6 +29,9 @@
 			      <td>${employee.getFirstName()}</td>
 			      <td>${employee.getLastName()}</td>
 			      <td>${employee.getTitle()}</td>
+			      
+			      <td><form action="homePage.jsp" method="post"><input type="image" src="img/edit.png" alt="Edit" height="15" width="15" value="Edit"></form></td>
+			      <td><form action="homePage.jsp" method="post"><input type="image" src="img/delete.png" alt="Delete" height="15" width="15" value="Delete"></form></td>
 			    </tr>
 			</c:forEach>
 		  </tbody>

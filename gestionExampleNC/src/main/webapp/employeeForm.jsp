@@ -16,12 +16,25 @@
 <body>
 	<div class="wrapper" >
 		<%@include file="jspf/navbar.html"%>
-		<form action="#" method="post">
+		
+		<c:choose>
+			<c:when test="${emp != null}">
+				<c:set var="path" value="updateEmp"/>
+			</c:when>
+			<c:when test="${emp == null}">
+				<c:set var="path" value="addEmp"/>
+			</c:when>
+		</c:choose>
+		
+		
+		
+		<form action="${path}" method="post">
 			<label>Prénom : </label>
 			<input type="text" name="firstName" value="${emp.getFirstName()}">
 			<label>Nom : </label>
 			<input type="text" name="lastName" value="${emp.getLastName()}">
 			<br>
+			
 			<label>Date d'embauche : </label>
 			<c:choose>
 				<c:when test="${emp != null}">
@@ -31,17 +44,44 @@
 					<c:set var="startDate" value="<%= new Date()%>"/>
 				</c:when>
 			</c:choose>
-			<input type="text" name="lastName" value="<fmt:formatDate value="${startDate}" pattern="dd-MM-yyyy"/>">
+			<input type="date" name="startDate" value="<fmt:formatDate value="${startDate}" pattern="yyyy-MM-dd"/>">
 			<br>
+			
+			
 			<label>Département : </label>
-			<input type="text" name="department" value="${emp.getDepartment()}">
+			<select name="deptId">
+				<option value="" <c:if test="${emp == null}">selected</c:if> disabled hidden="">Select a department</option>
+				<c:forEach items="${depts}" var="dept">
+					<option value="${dept.getDeptId()}" <c:if test="${emp.getDepartment.getDeptId() == dept.getDeptId()}">selected</c:if>>${dept.getName()}</option>
+				</c:forEach>
+			</select>
 			<br>
+			
+			
 			<label>Titre : </label>
-			<input type="text" name="title" value="${emp.getTitle()}">
+			<select name="title">
+				<option value="" <c:if test="${emp == null}">selected</c:if> disabled hidden="">Select a title</option>
+				<option value="teller" <c:if test="${emp.getTitle == 'Teller'}">selected</c:if>>Teller</option>
+				<option value="headTeller" <c:if test="${emp.getTitle == 'Head Teller'}">selected</c:if>>Head Teller</option>
+				<option value="operationsManager" <c:if test="${emp.getTitle == 'Operations Manager'}">selected</c:if>>Operations Manager</option>
+				<option value="loanManager" <c:if test="${emp.getTitle == 'Loan Manager'}">selected</c:if>>Loan Manager</option>
+				<option value="treasurer" <c:if test="${emp.getTitle == 'Treasurer'}">selected</c:if>>Treasurer</option>
+				<option value="vicePresident" <c:if test="${emp.getTitle == 'Vice President'}">selected</c:if>>Vice President</option>
+				<option value="president" <c:if test="${emp.getTitle == 'President'}">selected</c:if>>President</option>
+			</select>
+			
+			
 			<br>
 			<label>Manager : </label>
-			<input type="text" name="manager" value="${emp.getEmployee()}">
+			<select name="managerId">
+				<option value="" <c:if test="${emp == null}">selected</c:if> disabled hidden="">Select a manager</option>
+				<c:forEach items="${managers}" var="manager">
+					<option value="${manager.getEmpId()}" <c:if test="${emp.getEmployee.getEmpId() == manager.getEmpId()}">selected</c:if>>${manager.getFirstName()} ${manager.getLastName()}</option>
+				</c:forEach>
+			</select>
 			<br>
+			
+			
 			<label>Assigned Branch : </label>
 			<input type="text" name="assignedBranch" value="${emp.getAssignedBranchId()}">
 			<br>

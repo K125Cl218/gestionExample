@@ -51,4 +51,12 @@ public class EmployeeService implements IEmployeeService {
 		return emp;
 	}
 
+	@Override
+	public List<Employee> findManagers() {
+		dao.beginTransaction();
+		List<Employee> managers = dao.findManagers();
+		dao.commitTransaction();
+		return managers;
+	}
+
 }

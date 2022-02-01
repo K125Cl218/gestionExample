@@ -10,4 +10,5 @@ public interface IEmployeeService {
 	void addEmployee(Employee emp);
 	void EditEmployee(Employee emp);
 	Employee findById(Integer empId);
+	List<Employee> findManagers();
 }

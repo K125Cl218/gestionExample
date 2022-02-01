@@ -33,7 +33,7 @@
 			      <td>${employee.getLastName()}</td>
 			      <td>${employee.getTitle()}</td>
 			      
-			      <td><a href="updateEmp?empId=${employee.getEmpId().toString()}"><i class="fas fa-user-edit" style="color: black;"></i></a></td>
+			      <td><a href="updateRedirect?empId=${employee.getEmpId().toString()}"><i class="fas fa-user-edit" style="color: black;"></i></a></td>
 			      <td><a href="deleteEmp?empId=${employee.getEmpId().toString()}"><img alt="Delete" src="img/delete.png" height="15" width="15"></a></td>
 			    </tr>
 			    

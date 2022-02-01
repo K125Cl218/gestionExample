@@ -16,14 +16,16 @@
 	<div class="wrapper">
 		<%@include file="jspf/navbar.html"%>
 		
+		<div style="margin: auto; width: 70%">
 		<table class="table">
 		  <thead>
 		    <tr>
 		      <th scope="col">First Name</th>
 		      <th scope="col">Last Name</th>
 		      <th scope="col">Title</th>
-		      <th scope="col">Edit</th>
-		      <th scope="col">Delete</th>
+		      <th scope="col">Start Date</th>
+		      <th scope="col">Manager</th>
+		      <th scope="col">Actions</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -32,14 +34,19 @@
 			      <td>${employee.getFirstName()}</td>
 			      <td>${employee.getLastName()}</td>
 			      <td>${employee.getTitle()}</td>
+			      <td>${employee.getStartDate()}</td>
+			      <td>${employee.getEmployee().getFirstName()} ${employee.getEmployee().getLastName()}</td>
 			      
-			      <td><a href="updateRedirect?empId=${employee.getEmpId().toString()}"><i class="fas fa-user-edit" style="color: black;"></i></a></td>
-			      <td><a href="deleteEmp?empId=${employee.getEmpId().toString()}"><img alt="Delete" src="img/delete.png" height="15" width="15"></a></td>
+			      <td>
+				      	<a href="updateRedirect?empId=${employee.getEmpId().toString()}" data-toggle="tooltip" title="Edit employee"><i class="fas fa-user-edit" style="color: black;"></i></a>
+				      	<a href="deleteEmp?empId=${employee.getEmpId().toString()}" data-toggle="tooltip" title="Delete employee"><i class="fas fa-trash-alt" style="color: black;"></i></a>
+			      </td>
 			    </tr>
 			    
 			</c:forEach>
 		  </tbody>
 		</table>
+		</div>
 
 	</div>
 	

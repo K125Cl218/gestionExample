@@ -43,7 +43,7 @@ public class AddEmployeeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.sendRedirect("homePage.jsp");
+		response.sendRedirect("home");
 	}
 
 	/**

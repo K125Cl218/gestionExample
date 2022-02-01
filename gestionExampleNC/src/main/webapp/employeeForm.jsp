@@ -29,6 +29,8 @@
 		
 		
 		<form action="${path}" method="post">
+			<input type="text" hidden="" name="empId" value="${emp.getEmpId()}">
+		
 			<label>Prénom : </label>
 			<input type="text" name="firstName" value="${emp.getFirstName()}">
 			<label>Nom : </label>
@@ -61,13 +63,13 @@
 			<label>Titre : </label>
 			<select name="title">
 				<option value="" <c:if test="${emp == null}">selected</c:if> disabled hidden="">Select a title</option>
-				<option value="teller" <c:if test="${emp.getTitle() == 'Teller'}">selected</c:if>>Teller</option>
-				<option value="headTeller" <c:if test="${emp.getTitle() == 'Head Teller'}">selected</c:if>>Head Teller</option>
-				<option value="operationsManager" <c:if test="${emp.getTitle() == 'Operations Manager'}">selected</c:if>>Operations Manager</option>
-				<option value="loanManager" <c:if test="${emp.getTitle() == 'Loan Manager'}">selected</c:if>>Loan Manager</option>
-				<option value="treasurer" <c:if test="${emp.getTitle() == 'Treasurer'}">selected</c:if>>Treasurer</option>
-				<option value="vicePresident" <c:if test="${emp.getTitle() == 'Vice President'}">selected</c:if>>Vice President</option>
-				<option value="president" <c:if test="${emp.getTitle() == 'President'}">selected</c:if>>President</option>
+				<option value="Teller" <c:if test="${emp.getTitle() == 'Teller'}">selected</c:if>>Teller</option>
+				<option value="Head Teller" <c:if test="${emp.getTitle() == 'Head Teller'}">selected</c:if>>Head Teller</option>
+				<option value="Operations Manager" <c:if test="${emp.getTitle() == 'Operations Manager'}">selected</c:if>>Operations Manager</option>
+				<option value="Loan Manager" <c:if test="${emp.getTitle() == 'Loan Manager'}">selected</c:if>>Loan Manager</option>
+				<option value="Treasurer" <c:if test="${emp.getTitle() == 'Treasurer'}">selected</c:if>>Treasurer</option>
+				<option value="Vice President" <c:if test="${emp.getTitle() == 'Vice President'}">selected</c:if>>Vice President</option>
+				<option value="President" <c:if test="${emp.getTitle() == 'President'}">selected</c:if>>President</option>
 			</select>
 			
 			
@@ -83,7 +85,7 @@
 			
 			
 			<label>Assigned Branch : </label>
-			<input type="text" name="assignedBranch" value="${emp.getAssignedBranchId()}">
+			<input type="number" name="assignedBranch" value="${emp.getAssignedBranchId()}">
 			<br>
 			<label>Date de fin de contrat : </label>
 			<input type="date" name="endDate" value="${emp.getEndDate()}" pattern="yyyy-MM-dd"/>">

@@ -57,7 +57,7 @@ public class UserController extends HttpServlet {
 			request.setAttribute("error", "login or password incorrect !");
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
-		request.getRequestDispatcher("/homePage.jsp").forward(request, response);
+		request.getRequestDispatcher("home").forward(request, response);
 	}
 
 }

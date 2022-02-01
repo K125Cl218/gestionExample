@@ -56,7 +56,8 @@ public class AddEmployeeServlet extends HttpServlet {
 		String lastName = request.getParameter("lastName");
 
 		String startDateString = request.getParameter("startDate");
-		DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.FRANCE);
+		startDateString = startDateString.replaceAll("-", "/");
+		DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.US);
 		Date startDate = null;
 		if (startDateString != null && !startDateString.equals("")) {
 			try {

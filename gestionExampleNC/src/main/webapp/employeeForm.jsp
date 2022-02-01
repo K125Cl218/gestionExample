@@ -52,7 +52,7 @@
 			<select name="deptId">
 				<option value="" <c:if test="${emp == null}">selected</c:if> disabled hidden="">Select a department</option>
 				<c:forEach items="${depts}" var="dept">
-					<option value="${dept.getDeptId()}" <c:if test="${emp.getDepartment.getDeptId() == dept.getDeptId()}">selected</c:if>>${dept.getName()}</option>
+					<option value="${dept.getDeptId()}" <c:if test="${emp.getDepartment().getDeptId() == dept.getDeptId()}">selected</c:if>>${dept.getName()}</option>
 				</c:forEach>
 			</select>
 			<br>
@@ -61,13 +61,13 @@
 			<label>Titre : </label>
 			<select name="title">
 				<option value="" <c:if test="${emp == null}">selected</c:if> disabled hidden="">Select a title</option>
-				<option value="teller" <c:if test="${emp.getTitle == 'Teller'}">selected</c:if>>Teller</option>
-				<option value="headTeller" <c:if test="${emp.getTitle == 'Head Teller'}">selected</c:if>>Head Teller</option>
-				<option value="operationsManager" <c:if test="${emp.getTitle == 'Operations Manager'}">selected</c:if>>Operations Manager</option>
-				<option value="loanManager" <c:if test="${emp.getTitle == 'Loan Manager'}">selected</c:if>>Loan Manager</option>
-				<option value="treasurer" <c:if test="${emp.getTitle == 'Treasurer'}">selected</c:if>>Treasurer</option>
-				<option value="vicePresident" <c:if test="${emp.getTitle == 'Vice President'}">selected</c:if>>Vice President</option>
-				<option value="president" <c:if test="${emp.getTitle == 'President'}">selected</c:if>>President</option>
+				<option value="teller" <c:if test="${emp.getTitle() == 'Teller'}">selected</c:if>>Teller</option>
+				<option value="headTeller" <c:if test="${emp.getTitle() == 'Head Teller'}">selected</c:if>>Head Teller</option>
+				<option value="operationsManager" <c:if test="${emp.getTitle() == 'Operations Manager'}">selected</c:if>>Operations Manager</option>
+				<option value="loanManager" <c:if test="${emp.getTitle() == 'Loan Manager'}">selected</c:if>>Loan Manager</option>
+				<option value="treasurer" <c:if test="${emp.getTitle() == 'Treasurer'}">selected</c:if>>Treasurer</option>
+				<option value="vicePresident" <c:if test="${emp.getTitle() == 'Vice President'}">selected</c:if>>Vice President</option>
+				<option value="president" <c:if test="${emp.getTitle() == 'President'}">selected</c:if>>President</option>
 			</select>
 			
 			
@@ -76,7 +76,7 @@
 			<select name="managerId">
 				<option value="" <c:if test="${emp == null}">selected</c:if> disabled hidden="">Select a manager</option>
 				<c:forEach items="${managers}" var="manager">
-					<option value="${manager.getEmpId()}" <c:if test="${emp.getEmployee.getEmpId() == manager.getEmpId()}">selected</c:if>>${manager.getFirstName()} ${manager.getLastName()}</option>
+					<option value="${manager.getEmpId()}" <c:if test="${emp.getEmployee() .getEmpId() == manager.getEmpId()}">selected</c:if>>${manager.getFirstName()} ${manager.getLastName()}</option>
 				</c:forEach>
 			</select>
 			<br>
@@ -86,7 +86,7 @@
 			<input type="text" name="assignedBranch" value="${emp.getAssignedBranchId()}">
 			<br>
 			<label>Date de fin de contrat : </label>
-			<input type="text" name="endDate" value="${emp.getEndDate()}">
+			<input type="date" name="endDate" value="${emp.getEndDate()}" pattern="yyyy-MM-dd"/>">
 			<br>
 			<input type="submit" value="Enregistrer">
 			

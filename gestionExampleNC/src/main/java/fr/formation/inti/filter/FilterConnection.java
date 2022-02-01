@@ -42,7 +42,7 @@ public class FilterConnection implements Filter {
 		
 		String uri = req.getRequestURI();
 		
-		if(session == null && !(uri.endsWith("login.jsp") || uri.endsWith("/login") || uri.endsWith("icon.png"))) {
+		if(session == null && !(uri.endsWith("login.jsp") || uri.endsWith("/login") || uri.endsWith("icon.png") || uri.endsWith("style.css"))) {
 			res.sendRedirect("login.jsp");
 		} else {
 			chain.doFilter(request, response);

@@ -91,7 +91,7 @@ public class AddEmployeeServlet extends HttpServlet {
 		
 		empService.addEmployee(empAdded);
 		
-		response.sendRedirect("home");
+		response.sendRedirect("employeeList");
 
 	}
 

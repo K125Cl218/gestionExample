@@ -47,6 +47,7 @@ public class UserController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setMaxInactiveInterval(300); // 300 secondes avant deconnexion auto
 			session.setAttribute("user", user);
+			request.getRequestDispatcher("home").forward(request, response);
 		}
 		else
 		{
@@ -54,10 +55,9 @@ public class UserController extends HttpServlet {
 			if (session != null) {
 				session.invalidate();
 			}
-			request.setAttribute("error", "login or password incorrect !");
+			request.setAttribute("error", "Login or password incorrect !");
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
-		request.getRequestDispatcher("home").forward(request, response);
 	}
 
 }

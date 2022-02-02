@@ -3,8 +3,9 @@ package fr.formation.inti.controller;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -56,8 +57,8 @@ public class AddEmployeeServlet extends HttpServlet {
 		String lastName = request.getParameter("lastName");
 
 		String startDateString = request.getParameter("startDate");
-		startDateString = startDateString.replaceAll("-", "/");
-		DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, Locale.US);
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar c = Calendar.getInstance();
 		Date startDate = null;
 		if (startDateString != null && !startDateString.equals("")) {
 			try {
@@ -65,6 +66,9 @@ public class AddEmployeeServlet extends HttpServlet {
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
+			c.setTime(startDate);
+			c.add(Calendar.DATE, 1);
+			startDate = c.getTime();
 		}
 
 		Integer deptId = Integer.valueOf(request.getParameter("deptId"));
@@ -85,6 +89,9 @@ public class AddEmployeeServlet extends HttpServlet {
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
+			c.setTime(endDate);
+			c.add(Calendar.DATE, 1);
+			endDate = c.getTime();
 		}
 		
 		Employee empAdded = new Employee(dept, manager, endDate, firstName, lastName, startDate, title, assignedBranchId, null);

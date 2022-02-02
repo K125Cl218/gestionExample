@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" session="false"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,12 +22,13 @@
 			<div class="fadeIn first">
 				<img src="img/icon.png" alt="User Icon" width="30%"/>
 			</div>
-
+			
 			<!-- Login Form -->
 			<form action="login" method="post">
 				<input type="text" class="fadeIn second" name="login"	placeholder="login"> 
 				<input type="text" class="fadeIn third" name="password" placeholder="password"> 
 				<input type="submit" class="fadeIn fourth" value="Log In">
+				<p style="color: red;">${error}</p>
 			</form>
 
 			<!-- Create Account -->
@@ -36,5 +38,7 @@
 
 		</div>
 	</div>
+	
+
 </body>
 </html>

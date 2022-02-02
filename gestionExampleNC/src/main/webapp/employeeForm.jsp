@@ -100,15 +100,17 @@
 			<div class="row">
 				<div class="col">
 					<label for="assignedBranch">Assigned Branch : </label>
-					<input type="number" name="assignedBranch" value="${emp.getAssignedBranchId()}" class="form-control" id="assignedBranch">
+					<input type="number" name="assignedBranch" value="${emp.getAssignedBranchId()}" class="form-control" id="assignedBranch" min="1">
 				</div>
 				<div class="col">
 					<label for="endDate">Date de fin de contrat : </label>
 					<input type="date" name="endDate" value="<fmt:formatDate value="${emp.getEndDate()}" pattern="yyyy-MM-dd"/>" class="form-control" id="endDate">
 				</div>
 			</div>
+			<div align="right" style="margin-top: 10px">
+			<input type="button" onclick="location.href='employeeList'" value="Annuler" class="btn btn-primary">
 			<input type="submit" value="Enregistrer" class="btn btn-primary">
-			
+			</div>
 			
 		</form>
 		</div>

@@ -26,14 +26,14 @@ public class Employee implements java.io.Serializable {
 
 	private Integer empId;
 	private Department department;
-	private Employee employee;
+	private Employee manager;
 	private Date endDate;
 	private String firstName;
 	private String lastName;
 	private Date startDate;
 	private String title;
 	private Integer assignedBranchId;
-	private Set<Employee> employees = new HashSet<Employee>(0);
+	private Set<Employee> subordinates = new HashSet<Employee>(0);
 
 	public Employee() {
 	}
@@ -44,17 +44,17 @@ public class Employee implements java.io.Serializable {
 		this.startDate = startDate;
 	}
 
-	public Employee(Department department, Employee employee, Date endDate, String firstName, String lastName,
-			Date startDate, String title, Integer assignedBranchId, Set<Employee> employees) {
+	public Employee(Department department, Employee manager, Date endDate, String firstName, String lastName,
+			Date startDate, String title, Integer assignedBranchId, Set<Employee> subordinates) {
 		this.department = department;
-		this.employee = employee;
+		this.manager = manager;
 		this.endDate = endDate;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.startDate = startDate;
 		this.title = title;
 		this.assignedBranchId = assignedBranchId;
-		this.employees = employees;
+		this.subordinates = subordinates;
 	}
 
 	@Id
@@ -81,12 +81,12 @@ public class Employee implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "SUPERIOR_EMP_ID")
-	public Employee getEmployee() {
-		return this.employee;
+	public Employee getManager() {
+		return this.manager;
 	}
 
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
+	public void setManager(Employee manager) {
+		this.manager = manager;
 	}
 
 	@Temporal(TemporalType.DATE)
@@ -146,12 +146,12 @@ public class Employee implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
-	public Set<Employee> getEmployees() {
-		return this.employees;
+	public Set<Employee> getSubordinates() {
+		return this.subordinates;
 	}
 
-	public void setEmployees(Set<Employee> employees) {
-		this.employees = employees;
+	public void setSubordinates(Set<Employee> subordinates) {
+		this.subordinates = subordinates;
 	}
 
 }

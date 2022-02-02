@@ -32,8 +32,7 @@ public class UpdateEmployeeRedirectServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-//		response.sendRedirect("homePage.jsp");
+		response.sendRedirect("home");
 	}
 
 	/**

@@ -30,19 +30,26 @@ public class DeleteEmployee extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		IEmployeeService service = new EmployeeService();
-		String empIdString = request.getParameter("empId");
-		Integer empId = Integer.valueOf(empIdString);
-		Employee empToDel = service.findById(empId);
-		service.deleteEmployee(empToDel);
-		response.sendRedirect("employeeList");
+//		IEmployeeService service = new EmployeeService();
+//		String empIdString = request.getParameter("empId");
+//		Integer empId = Integer.valueOf(empIdString);
+//		Employee empToDel = service.findById(empId);
+//		service.deleteEmployee(empToDel);
+//		response.sendRedirect("employeeList");
+		response.sendRedirect("home");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+//		doGet(request, response);
+		IEmployeeService service = new EmployeeService();
+		String empIdString = request.getParameter("empId");
+		Integer empId = Integer.valueOf(empIdString);
+		Employee empToDel = service.findById(empId);
+		service.deleteEmployee(empToDel);
+		response.sendRedirect("employeeList");
 	}
 
 }

@@ -8,7 +8,7 @@
 <title>Hello Struts</title>
 </head>
 <body>
-	<h1><a href="<s:url action="hello"/>">Hello Struts</a></h1>
+	<h2> <s:property value="messageStore.message"/> </h2>
 
 </body>
 </html>

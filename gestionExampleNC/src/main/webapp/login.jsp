@@ -13,7 +13,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-	<%@include file="jspf/header.html"%>
+	<%-- <%@include file="jspf/header.html"%> --%>
 	<div class="wrapper fadeInDown">
 		<div id="formContent">
 			<!-- Tabs Titles -->
@@ -38,6 +38,6 @@
 		</div>
 	</div>
 	
-	<%@include file="jspf/footer.html" %>
+	<%-- <%@include file="jspf/footer.html" %> --%>
 </body>
 </html>

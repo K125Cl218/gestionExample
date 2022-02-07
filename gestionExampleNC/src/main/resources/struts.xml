@@ -3,12 +3,19 @@
 Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<constant name="struts.dev" value="true"></constant>
+	<constant name="struts.action.extension" value="," />
 	<package name="default" extends="struts-default">
 		<action name="index">
 			<result>/index.jsp</result>
 		</action>
-		
-		<action name="hello" class="fr.formation.inti.action.HelloStrutsAction" method="execute">
+
+		<action name="display"
+			class="fr.formation.inti.action.HelloStrutsAction" method="display">
+			<result name="none">/index.jsp</result>
+		</action>
+
+		<action name="hello"
+			class="fr.formation.inti.action.HelloStrutsAction" method="execute">
 			<result name="success">/HelloStruts.jsp</result>
 			<result name="error">/HelloStruts.jsp</result>
 		</action>

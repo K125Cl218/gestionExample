@@ -8,7 +8,9 @@
 <title>Hello Struts</title>
 </head>
 <body>
-	<h2> <s:property value="messageStore.message"/> </h2>
-
+	<h2><s:property value="messageStore.message"/></h2>
+	<h2>Hello <s:property value="name"/> !</h2>
+	<h2>Personne saisie :</h2>
+	<span><s:property value="personne"/></span>
 </body>
 </html>

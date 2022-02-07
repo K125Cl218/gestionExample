@@ -56,10 +56,17 @@ public class Employee implements java.io.Serializable {
 		this.assignedBranchId = assignedBranchId;
 		this.employees = employees;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", title=" + title
+				+ "]";
+	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-
 	@Column(name = "EMP_ID", unique = true, nullable = false)
 	public Integer getEmpId() {
 		return this.empId;

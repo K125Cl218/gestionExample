@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <!-- Possible de définir une méthode static comme constructeur -->
+    <bean id="daoEmployee" name="dao deuxiemenom etc" class="fr.formation.inti.dao.EmployeeDao" factory-method="createInstance"/>
+	
+	<!-- Propriété scope (singleton(default) || prototype) > prototype crée une nouvelle instance à chaque appel -->
+<!-- 	<bean id="serviceEmployee" class="fr.formation.inti.service.EmployeeService">
+		Injection du dao par property/attribut - nécessite un setter
+		<property name="dao" ref="daoEmployee"/>
+		Injection par constructeur
+		<constructor-arg name="dao" ref="daoEmployee"/>
+		<property name="message" value="inject value example"/>
+	</bean>    --> 	
+	
+	<!-- Autowiring par type : Spring reconnaît les attributs à injecter par leur type -->
+	<!-- Fonctionne pas si on a plusieurs objets du meme type (ex : 2 dao qui implementent IEmployeeDao -->
+	<!-- <bean id="serviceEmployee" class="fr.formation.inti.service.EmployeeService" autowire="byType"/> -->
+	
+	<!-- Autowiring par name : Spring reconnaît les attributs à injecter par le nom du setter et id ou name du bean ^ -->
+	<bean id="serviceEmployee" class="fr.formation.inti.service.EmployeeService" autowire="byName"/>
+
+</beans>

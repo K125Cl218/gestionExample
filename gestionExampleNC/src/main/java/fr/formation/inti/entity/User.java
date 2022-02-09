@@ -45,6 +45,13 @@ public class User implements java.io.Serializable {
 		this.role = role;
 	}
 
+	
+	
+	@Override
+	public String toString() {
+		return "User [login=" + login + "]";
+	}
+
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 

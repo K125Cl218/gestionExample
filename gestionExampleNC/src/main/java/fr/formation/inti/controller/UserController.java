@@ -17,7 +17,7 @@ import fr.formation.inti.service.UserService;
  * Servlet implementation class UserController
  */
 
-@WebServlet("/login")
+@WebServlet("/loginServlet")
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private IUserService service;
